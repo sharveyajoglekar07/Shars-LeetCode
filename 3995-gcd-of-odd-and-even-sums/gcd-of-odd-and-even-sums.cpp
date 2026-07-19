@@ -14,16 +14,11 @@ for (int i = 2; i <= 2 * n; i += 2)
     
 private:
     int calcGCD(int a, int b) {
-     
-        int gcd = 1;
-        int smallest = (a < b) ? a : b;
-        
-        for (int x = smallest; x >= 1; x--) {
-            if (a % x == 0 && b % x == 0) {
-                gcd = x;
-                break; 
-            }
-        }
-        return gcd;
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
+    return a;
+}
 };
